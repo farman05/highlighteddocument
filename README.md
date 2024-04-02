@@ -8,7 +8,6 @@ This Highlighted Text Display Module is designed to enhance the Prior Authorizat
   - The source code for the highlighting logic implementation can be found in the `utils/documentHighlighter.js` file.
 
     ```javascript
-    // HighlightingLogic.js
     const highlightText = (document, highlightText) => {
         const regex = new RegExp(highlightText, 'gi');
         return document.replace(regex, '<mark>$&</mark>');
@@ -20,7 +19,6 @@ This Highlighted Text Display Module is designed to enhance the Prior Authorizat
   - The integration with the document viewer can be found in the `components/HighlightedDocumentViewer` file.
 
     ```javascript
-    // HighlightedDocumentViewer.js
     import React from 'react';
     import { Document, Page } from 'react-pdf';
     import highlightText from './HighlightingLogic';
