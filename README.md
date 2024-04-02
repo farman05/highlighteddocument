@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Highlighted Text Display Module
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This Highlighted Text Display Module is designed to enhance the Prior Authorization (PA) form by implementing a feature that highlights relevant text within the document. The module includes algorithms for text highlighting, integration with a document viewer, and basic highlighting logic.
 
-## Available Scripts
+### Source Code
 
-In the project directory, you can run:
+- **Task 2: Highlighting Logic**
+  - The source code for the highlighting logic implementation can be found in the `utils/documentHighlighter.js` file.
 
-### `npm start`
+    ```javascript
+    // HighlightingLogic.js
+    const highlightText = (document, highlightText) => {
+        const regex = new RegExp(highlightText, 'gi');
+        return document.replace(regex, '<mark>$&</mark>');
+    };
+    export default highlightText;
+    ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Task 4: Integration with Document Viewer**
+  - The integration with the document viewer can be found in the `components/HighlightedDocumentViewer` file.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    ```javascript
+    // HighlightedDocumentViewer.js
+    import React from 'react';
+    import { Document, Page } from 'react-pdf';
+    import highlightText from './HighlightingLogic';
 
-### `npm test`
+    const HighlightedDocumentViewer = ({ documentUrl }) => {
+      // Component implementation...
+    };
+    export default HighlightedDocumentViewer;
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### README File
 
-### `npm run build`
+- **Running and Testing Instructions**
+  1. Clone the repository to your local machine.
+  2. Install dependencies using `npm install`.
+  3. Start the application using `npm start`.
+  4. The page will load with a default pdf and a input box.When you enter test that is in pdf it will be highlighted.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Documentation
+- **Highlighting Algorithm**
+  - The highlighting algorithm utilizes a regular expression to search for keywords within the document text. When a match is found, the keyword is wrapped in HTML `<mark>` tags for visual highlighting.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Document Viewer Library**
+  - The document viewer library used for this module is [react-pdf](https://github.com/wojtekmaj/react-pdf). It provides components for rendering PDF documents in React applications and supports integration with highlighting features.
